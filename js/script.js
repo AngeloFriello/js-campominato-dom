@@ -2,10 +2,12 @@ const selectDOMElement = document.getElementById('select');
 const playBtnDOMElement = document.querySelector('.play-btn');
 const gridDOMElement = document.querySelector('.grid');
 
+let bombs = []
+
 playBtnDOMElement.addEventListener('click', function (){
 
-    const bombs = getArrayRandom (1, 100 ,16)
-    console.log(bombs)
+    
+    
 
     gridDOMElement.innerHTML = '';
     gridDOMElement.classList.remove('grid-hard');
@@ -13,26 +15,38 @@ playBtnDOMElement.addEventListener('click', function (){
 // selettore di difficoltà
     // facile
     if(selectDOMElement.value == 0){
+
+        bombs = getArrayRandom (1, 49 ,16)
+        console.log(bombs)
+
         gridDOMElement.classList.add('grid-easy');
         const gridEasyDOMElement = document.querySelector('.grid-easy');
-        for (let i = 1; i <= 49 ;i++){
-            n = i;
+        for (let i = 0; i < 49 ;i++){
+            n = i + 1;
             gridEasyDOMElement.innerHTML += `<div class="cell ">${n}</div>`;
         }
     // medio
     }else if(selectDOMElement.value == 1){
+
+        bombs = getArrayRandom (1, 81 ,16)
+        console.log(bombs)
+
         gridDOMElement.classList.add('grid-mid');
         const gridMidDOMElement = document.querySelector('.grid-mid');     
-        for (let i = 1; i <= 81 ;i++){
-            n = i;
+        for (let i = 0; i < 81 ;i++){
+            n = i + 1;
             gridMidDOMElement.innerHTML += `<div class="cell ">${n}</div>`;
         }
     // difficile
     }else if(selectDOMElement.value == 2){
+
+        bombs = getArrayRandom (1, 100 ,16)
+        console.log(bombs)
+
         gridDOMElement.classList.add('grid-hard');
         const gridHardDOMElement = document.querySelector('.grid-hard');
-        for (let i = 1; i <= 100; i++){
-            n = i;
+        for (let i = 0; i < 100; i++){
+            n = i + 1;
             gridHardDOMElement.innerHTML += `<div class="cell ">${n}</div>`;
         }
     }
@@ -46,14 +60,14 @@ playBtnDOMElement.addEventListener('click', function (){
 
         currentCellDOMElement.addEventListener ('click', function() {
             
-            if (bombs.includes(i + 1) === true){
-
+            if (bombs.includes(i) === true){
+                i = (i - 1)
                 currentCellDOMElement.classList.add('bg-red')
             }else{
                currentCellDOMElement.classList.add('bg-azurro');
             }
             
-        console.log('hai selezionato la casella'+ `${i +1}`);
+        console.log('hai selezionato la casella' + `${i + 1}`);
         })
     }
 })
