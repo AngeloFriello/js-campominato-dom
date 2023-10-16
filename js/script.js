@@ -6,13 +6,16 @@ let bombs = []
 
 playBtnDOMElement.addEventListener('click', function (){
 
-    
+    let score = document.getElementById('contatore')
+
+    let punteggio = 0
     
 
     gridDOMElement.innerHTML = '';
     gridDOMElement.classList.remove('grid-hard');
     gridDOMElement.classList.remove('grid-mid');
 // selettore di difficoltà
+
     // facile
     if(selectDOMElement.value == 0){
 
@@ -50,7 +53,7 @@ playBtnDOMElement.addEventListener('click', function (){
             gridHardDOMElement.innerHTML += `<div class="cell ">${n}</div>`;
         }
     }
-// lesezionare cella singola
+// sesezionare cella singola
     const cellDOMElements = document.querySelectorAll('.cell');
     console.log(cellDOMElements);
 // creare un ciclo per ciclare tutte le celle per poter selezionare le singole celle e darle degli atributi
@@ -65,12 +68,36 @@ playBtnDOMElement.addEventListener('click', function (){
                 currentCellDOMElement.classList.add('bg-red')
             }else{
                currentCellDOMElement.classList.add('bg-azurro');
+               punteggio = punteggio + 1
+               console.log(punteggio)
+               score.innerHTML = 'il tuo punteggio è: ' + punteggio
             }
             
         console.log('hai selezionato la casella' + `${i + 1}`);
         })
     }
+
+    
+    
+
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
