@@ -40,18 +40,17 @@ playBtnDOMElement.addEventListener('click', function (){
     const cellDOMElements = document.querySelectorAll('.cell');
     console.log(cellDOMElements);
 // creare un ciclo per ciclare tutte le celle per poter selezionare le singole celle e darle degli atributi
-    for (let i = 0; i < cellDOMElements.length + 1; i++){
+    for (let i = 0; i < cellDOMElements.length; i++){
 
         const currentCellDOMElement = cellDOMElements[i];
 
-        currentCellDOMElement.addEventListener('click', function() {
+        currentCellDOMElement.addEventListener ('click', function() {
             
-            if(cellDOMElements[i + 1] === bombs.includes(n)){
+            if (bombs.includes(i + 1) === true){
 
                 currentCellDOMElement.classList.add('bg-red')
-                
             }else{
-                currentCellDOMElement.classList.add('bg-azurro');
+               currentCellDOMElement.classList.add('bg-azurro');
             }
             
         console.log('hai selezionato la casella'+ `${i +1}`);
