@@ -6,10 +6,9 @@ let bombs = []
 
 playBtnDOMElement.addEventListener('click', function (){
 
-    let score = document.getElementById('contatore')
+    let scoreDOMElement = document.getElementById('contatore')
 
-    let punteggio = 0
-    
+    let score = 0
 
     gridDOMElement.innerHTML = '';
     gridDOMElement.classList.remove('grid-hard');
@@ -64,13 +63,15 @@ playBtnDOMElement.addEventListener('click', function (){
         currentCellDOMElement.addEventListener ('click', function() {
             
             if (bombs.includes(i) === true){
-                i = (i - 1)
+                i = (i)
                 currentCellDOMElement.classList.add('bg-red')
+                gridDOMElement.classList.add('cursor')
             }else{
                currentCellDOMElement.classList.add('bg-azurro');
-               punteggio = punteggio + 1
-               console.log(punteggio)
-               score.innerHTML = 'il tuo punteggio è: ' + punteggio
+               score = score + 1
+               console.log(score)
+               scoreDOMElement.innerHTML = 'Il tuo punteggio è : ' +  score
+               currentCellDOMElement.classList.add('cursor')
             }
             
         console.log('hai selezionato la casella' + `${i + 1}`);

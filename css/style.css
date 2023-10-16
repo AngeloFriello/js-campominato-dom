@@ -30,6 +30,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .bg-azurro{
@@ -38,4 +39,8 @@
 
 .bg-red{
     background-color: red;
+}
+
+.cursor{
+    pointer-events: none;
 }
