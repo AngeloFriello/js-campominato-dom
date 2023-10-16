@@ -13,6 +13,7 @@ playBtnDOMElement.addEventListener('click', function (){
     gridDOMElement.innerHTML = '';
     gridDOMElement.classList.remove('grid-hard');
     gridDOMElement.classList.remove('grid-mid');
+    gridDOMElement.classList.remove('cursor');
 // selettore di difficoltà
 
     // facile
@@ -64,22 +65,23 @@ playBtnDOMElement.addEventListener('click', function (){
             
             if (bombs.includes(i) === true){
                 i = (i)
-                currentCellDOMElement.classList.add('bg-red')
-                gridDOMElement.classList.add('cursor')
+                currentCellDOMElement.classList.add('bg-red');
+                gridDOMElement.classList.add('cursor');
+                alert ('hai perso, il tuo punteggio è:' + score);
             }else{
                currentCellDOMElement.classList.add('bg-azurro');
-               score = score + 1
-               console.log(score)
-               scoreDOMElement.innerHTML = 'Il tuo punteggio è : ' +  score
-               currentCellDOMElement.classList.add('cursor')
+               score = score + 1;
+               console.log(score);
+               scoreDOMElement.innerHTML = 'Il tuo punteggio è : ' +  score;
+               currentCellDOMElement.classList.add('cursor');
+               if(score === 33){
+                alert("hai vinto");
+               }
             }
             
         console.log('hai selezionato la casella' + `${i + 1}`);
         })
     }
-
-    
-    
 
 })
 
