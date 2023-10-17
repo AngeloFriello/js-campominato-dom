@@ -53,6 +53,7 @@ playBtnDOMElement.addEventListener('click', function (){
             gridHardDOMElement.innerHTML += `<div class="cell ">${n}</div>`;
         }
     }
+    
 // sesezionare cella singola
     const cellDOMElements = document.querySelectorAll('.cell');
     console.log(cellDOMElements);
@@ -64,7 +65,7 @@ playBtnDOMElement.addEventListener('click', function (){
         currentCellDOMElement.addEventListener ('click', function() {
             
             if (bombs.includes(i) === true){
-                i = (i)
+                
                 currentCellDOMElement.classList.add('bg-red');
                 gridDOMElement.classList.add('cursor');
                 alert ('hai perso, il tuo punteggio è:' + score);
