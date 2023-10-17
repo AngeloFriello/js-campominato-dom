@@ -37,15 +37,15 @@ playBtnDOMElement.addEventListener('click', function (){
     console.log(cellDOMElements);
 // creare un ciclo per ciclare tutte le celle per poter selezionare le singole celle e darle degli atributi
     for (let i = 0; i < cellDOMElements.length; i++){
-
         const currentCellDOMElement = cellDOMElements[i];
 
         currentCellDOMElement.addEventListener ('click', function() {
-            
             if (bombs.includes(i + 1) === true){
+
                 currentCellDOMElement.classList.add('bg-red');
                 gridDOMElement.classList.add('cursor');
                 alert ('hai perso, il tuo punteggio è:' + score);
+                
             }else{
                currentCellDOMElement.classList.add('bg-azurro');
                score = score + 1;

@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    background-color: lightgray;
 }
 
 .container{
@@ -21,7 +22,6 @@
 
 .grid-hard{
     display: grid;
-    
     grid-template-columns: repeat(10,1fr);
 }
 
@@ -33,7 +33,7 @@
     align-items: center;
     border-radius: 20px;
     margin: 10px;
-    
+    background-color: white;
 }
 
 .bg-azurro{
@@ -46,4 +46,30 @@
 
 .cursor{
     pointer-events: none;
+}
+
+.play-btn{
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: blue;
+    color: white;
+}
+
+#select{
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: green;
+    color: white;
+}
+
+h1{
+    font-size: 80px;
+    color: chocolate;
+}
+
+#contatore{
+    color: chocolate;
+    font-size: 50px
 }
