@@ -2,56 +2,34 @@ const selectDOMElement = document.getElementById('select');
 const playBtnDOMElement = document.querySelector('.play-btn');
 const gridDOMElement = document.querySelector('.grid');
 
-let bombs = []
+let bombs = [];
 
 playBtnDOMElement.addEventListener('click', function (){
-
-    let scoreDOMElement = document.getElementById('contatore')
-
-    let score = 0
+    let scoreDOMElement = document.getElementById('contatore');
+    let score = 0;
 
     gridDOMElement.innerHTML = '';
     gridDOMElement.classList.remove('grid-hard');
     gridDOMElement.classList.remove('grid-mid');
     gridDOMElement.classList.remove('cursor');
-// selettore di difficoltà
 
-    // facile
+    let numberOfCell = 0;
+
     if(selectDOMElement.value == 0){
-
-        bombs = getArrayRandom (1, 49 ,16)
-        console.log(bombs)
-
+        numberOfCell = 49;
         gridDOMElement.classList.add('grid-easy');
-        const gridEasyDOMElement = document.querySelector('.grid-easy');
-        for (let i = 0; i < 49 ;i++){
-            n = i + 1;
-            gridEasyDOMElement.innerHTML += `<div class="cell ">${n}</div>`;
-        }
-    // medio
     }else if(selectDOMElement.value == 1){
-
-        bombs = getArrayRandom (1, 81 ,16)
-        console.log(bombs)
-
+        numberOfCell = 81;
         gridDOMElement.classList.add('grid-mid');
-        const gridMidDOMElement = document.querySelector('.grid-mid');     
-        for (let i = 0; i < 81 ;i++){
-            n = i + 1;
-            gridMidDOMElement.innerHTML += `<div class="cell ">${n}</div>`;
-        }
-    // difficile
     }else if(selectDOMElement.value == 2){
-
-        bombs = getArrayRandom (1, 100 ,16)
-        console.log(bombs)
-
+        numberOfCell = 100;
         gridDOMElement.classList.add('grid-hard');
-        const gridHardDOMElement = document.querySelector('.grid-hard');
-        for (let i = 0; i < 100; i++){
-            n = i + 1;
-            gridHardDOMElement.innerHTML += `<div class="cell ">${n}</div>`;
-        }
+    }
+    bombs = getArrayRandom (1, numberOfCell ,16)
+    console.log(bombs);
+    for (let i = 0; i < numberOfCell; i++){
+        n = i + 1;
+        gridDOMElement.innerHTML += `<div class="cell ">${n}</div>`;
     }
     
 // sesezionare cella singola
@@ -64,8 +42,7 @@ playBtnDOMElement.addEventListener('click', function (){
 
         currentCellDOMElement.addEventListener ('click', function() {
             
-            if (bombs.includes(i) === true){
-                
+            if (bombs.includes(i + 1) === true){
                 currentCellDOMElement.classList.add('bg-red');
                 gridDOMElement.classList.add('cursor');
                 alert ('hai perso, il tuo punteggio è:' + score);
